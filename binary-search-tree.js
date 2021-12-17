@@ -15,7 +15,12 @@ class BinarySearchTree {
    * Returns the tree. Uses iteration. */
 
   insert(val) {
-
+    if (this.root === null) {
+      this.root = new Node(val);
+      return this;
+    }
+    
+    
   }
 
   /** insertRecursively(val): insert a new node into the BST with value val.
