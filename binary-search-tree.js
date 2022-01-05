@@ -22,25 +22,24 @@ class BinarySearchTree {
     
     let currNode = this.root;
     
-    while(!currNode.left || !currNode.right){//while node has chilldun iterate
-    	
-    
-    	if(!currNode.left){
-      	currNode.left = new Node(val);
-        break;
+    while(true){
+      if(currNode.val > val){
+        if(!currNode.left){
+           currNode.left = new Node(val);
+           return this;
+        }else{
+           currNode = currNode.left;
+        }
+      }else if(currNode.val < val){
+        if(!currNode.right){
+           currNode.right = new Node(val);
+           return this;
+        }else{
+           currNode = currNode.right;
+        }
       }
-      
-      if(!currNode.right){
-      	currNode.right = new Node(val);
-        break;
-      }
-      
-      //after seeing left and right aren't null we need to go to left of right
-      currNode = currNode.left;
       
     }
-    
-    return this;
   }
 
   /** insertRecursively(val): insert a new node into the BST with value val.
