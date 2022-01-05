@@ -20,9 +20,11 @@ class BinarySearchTree {
       return this;
     }
     
-    const currNode = this.root;
+    let currNode = this.root;
     
     while(!currNode.left || !currNode.right){//while node has chilldun iterate
+    	
+    
     	if(!currNode.left){
       	currNode.left = new Node(val);
         break;
@@ -32,6 +34,10 @@ class BinarySearchTree {
       	currNode.right = new Node(val);
         break;
       }
+      
+      //after seeing left and right aren't null we need to go to left of right
+      currNode = currNode.left;
+      
     }
     
     return this;
