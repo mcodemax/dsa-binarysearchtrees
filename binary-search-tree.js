@@ -20,7 +20,21 @@ class BinarySearchTree {
       return this;
     }
     
+    const currNode = this.root;
     
+    while(!currNode.left || !currNode.right){//while node has chilldun iterate
+    	if(!currNode.left){
+      	currNode.left = new Node(val);
+        break;
+      }
+      
+      if(!currNode.right){
+      	currNode.right = new Node(val);
+        break;
+      }
+    }
+    
+    return this;
   }
 
   /** insertRecursively(val): insert a new node into the BST with value val.
