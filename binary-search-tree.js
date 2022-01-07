@@ -77,6 +77,8 @@ class BinarySearchTree {
    * return the node, if found; else undefined. Uses iteration. */
 
   find(val) {
+	 if(!this.root) return;
+	  
   	let currNode = this.root;
   
 		while(currNode){
