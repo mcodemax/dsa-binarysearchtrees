@@ -159,8 +159,20 @@ class BinarySearchTree {
   /** dfsPostOrder(): Traverse the array using post-order DFS.
    * Return an array of visited nodes. */
 
-  dfsPostOrder() {
-
+  dfsPostOrder(arr = [], currNode = this.root) {
+	if(!this.root) return [];
+    
+    if(currNode.left){
+    	this.dfsPostOrder(arr, currNode.left); //don't return this
+    }
+    
+    if(currNode.right){
+    	this.dfsPostOrder(arr, currNode.right); ////don't return this
+    }
+    
+    arr.push(currNode.val)
+    
+    return arr;
   }
 
   /** bfs(): Traverse the array using BFS.
