@@ -121,8 +121,20 @@ class BinarySearchTree {
   /** dfsPreOrder(): Traverse the array using pre-order DFS.
    * Return an array of visited nodes. */
 
-  dfsPreOrder() {
-
+  dfsPreOrder(arr = [], currNode = this.root) {
+		if(!this.root) return [];
+    
+    arr.push(currNode.val)
+    
+    if(currNode.left){
+    	this.dfsPreOrder(arr, currNode.left); //don't return this
+    }
+    
+    if(currNode.right){
+    	this.dfsPreOrder(arr, currNode.right); ////don't return this
+    }
+    
+    return arr;
   }
 
   /** dfsInOrder(): Traverse the array using in-order DFS.
