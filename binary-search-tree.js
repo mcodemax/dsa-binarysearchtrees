@@ -51,8 +51,6 @@ class BinarySearchTree {
       return this;
     }
     
-    
-    
     function helpRec(currNode){
     
       if(val < currNode.val){
@@ -73,32 +71,39 @@ class BinarySearchTree {
       }
     }
 
+    helpRec(this.root)
+
+    return this;
+  }
+
   /** find(val): search the tree for a node with value val.
    * return the node, if found; else undefined. Uses iteration. */
 
   find(val) {
-	 if(!this.root) return;
+    if(!this.root) return;
 	  
-  	let currNode = this.root;
+    let currNode = this.root;
+    let found = false;
   
-		while(currNode){
+		while(currNode && !found){
     	if(currNode.val === val) return currNode;//base case
-      
+
       if(val < currNode.val){
-      	if(currNode.left){//if 
         	currNode = currNode.left;
-        }
-      	
       }else if(val > currNode.val){
-      	if(currNode.right){//if 
         	currNode = currNode.right;
-        }
+      }else{
+        found = true;
       }
     }
+
+    if(!found) return undefined;
+
+    return currNode;
   }
 
-  /** findRecursively(val): search the tree for a node with value val.
-   * return the node, if found; else undefined. Uses recursion. */
+  // /** findRecursively(val): search the tree for a node with value val.
+  //  * return the node, if found; else undefined. Uses recursion. */
 
   findRecursively(val, currNode = this.root) {
 		if(!this.root) return;
